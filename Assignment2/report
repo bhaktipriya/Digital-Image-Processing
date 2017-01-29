@@ -1,0 +1,34 @@
+1. With increase in k(weight), sharp features are more enhanced coz you add more weight to the difference, while adding it back to the image.
+With increase in w(window) size, sharp features are enhanced. This is because the blurred image now has a lot of loss of information (small kernel, rather fixed kernel size, and a lot of data). Subtracting the blurred from the original will give to much larger values of difference. Thus on adding the difference, we get a sharper image.
+
+
+2.
+   Gaussian(1)=upsampled(downsampled(gaussian(original))
+   Gaussian(2)=upsampled(downsampled(gaussian(Gaussian(1)))
+   Gaussian(3)=upsampled(downsampled(gaussian(Gaussian(2)))
+	
+   LP of main image, LP of bg image, G of mask.
+   Build with these ..
+   With more levels, blurring will be more so merging will be better.
+
+
+3. 
+8 bit integral image with double reconstruction, gives us the exact image.
+8 bit integral image with uint8 reconstruction, leads to overflow of values, and doesnt give us the exact image.
+2MN operations for integral image:
+ii(x,y)=S(x,y)+ii(x,y-1)
+Applications: Calculation of rectangular functions like avg intensity of a rect region.
+
+4.
+Changind wwindow- larger window better smoothening, but for higher vals you might loose edges
+Changing sigma - smoother image
+inverse bilateral filterring getting salient portions of the image
+
+5.
+image warping:
+
+iterate over final image, and interpolate original to find the intensity for output
+
+
+
+

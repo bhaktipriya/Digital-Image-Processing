@@ -1,0 +1,10 @@
+I = imread('ballet.jpg');
+O = inverseBilateralFilter(I, 5, 20);
+disparity = (I -O);
+figure;
+subplot(1,3,1);
+imshow(I);
+subplot(1,3,2);
+imshow(uint8(O));
+subplot(1,3,3);
+imshow(uint8(disparity));
