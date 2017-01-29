@@ -1,0 +1,13 @@
+L=getpfmraw('rosette.pfm');
+a=0.18;
+r=(L(:,:,1));
+g=(L(:,:,2));
+b=(L(:,:,3));
+lwr=computeLw(r);
+lwg=computeLw(g);
+lwb=computeLw(b);
+out=zeros(size(L));
+out(:,:,1)=scaleL(r,lwr,a);
+out(:,:,2)=scaleL(g,lwg,a);
+out(:,:,3)=scaleL(b,lwb,a);
+figure,imshow((out));
